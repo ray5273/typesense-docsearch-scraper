@@ -28,6 +28,9 @@ class BrowserHandler:
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--headless')
             chrome_options.add_argument('user-agent={0}'.format(user_agent))
+            chrome_options.add_argument('--ignore-certificate-errors')  # SSL 인증서 오류 무시
+            chrome_options.add_argument('--disable-web-security')       # 웹 보안 비활성화
+            chrome_options.add_argument('--allow-insecure-localhost')   # 로컬 호스트 SSL 인증서 무시
 
             CHROMIUMDRIVER_PATH = os.environ.get('CHROMIUMDRIVER_PATH', "/usr/bin/chromedriver")
 
